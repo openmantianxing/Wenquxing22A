@@ -1,0 +1,3 @@
+[submodule "hw/verif/snn/snn-am"]
+	path = hw/verif/snn/snn-am
+	url = https://github.com/openmantianxing/snn-am.git
