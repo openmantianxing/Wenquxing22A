@@ -1,9 +1,6 @@
-# Wenquxing 22A: A Low-power Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network (RV-SNN), treamlined LIF model ,and Binary Stochastic STDP
+# Wenquxing 22A: A Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network (RV-SNN), treamlined LIF model ,and Binary Stochastic STDP
 
-## Contents
-
-- [Wenquxing 22A: A Low-power Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network (RV-SNN), treamlined LIF model ,and Binary Stochastic STDP](#wenquxing-22a-a-low-power-neuromorphic-processor-of-risc-v-customized-instruction-extensions-for-spiking-neuron-network-rv-snn-treamlined-lif-model-and-binary-stochastic-stdp)
-  - [Contents](#contents)
+- [Wenquxing 22A: A Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network (RV-SNN), treamlined LIF model ,and Binary Stochastic STDP](#wenquxing-22a-a-neuromorphic-processor-of-risc-v-customized-instruction-extensions-for-spiking-neuron-network-rv-snn-treamlined-lif-model-and-binary-stochastic-stdp)
   - [0. Introduction](#0-introduction)
     - [File structure of Wenquxing 22A(ONLY related files are listed)](#file-structure-of-wenquxing-22aonly-related-files-are-listed)
   - [1. RV-SNN Instruction Extensions](#1-rv-snn-instruction-extensions)

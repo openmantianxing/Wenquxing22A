@@ -1,4 +1,4 @@
-# Wenquxing 22A: A Low-power Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network
+# Wenquxing 22A: A Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network
 
 Wenquxing 22A is a low-power neuromorphic processor which combines both general-purpose CPU functions and SNN to efficiently computing it with RISC-V SNN extension instructions. Its key features are shown as follow:
 
@@ -8,6 +8,23 @@ Wenquxing 22A is a low-power neuromorphic processor which combines both general-
 single cycle updating of synaptic weights.
 
 The full documents of Wenquxing 22A is in [doc](./doc/) directory.
+
+## Quick Usage
+
+### Generate Verilog File for FPGA
+In `hw/`
+```
+$ make BOARD=pynq
+```
+detailed information can be found in [doc](doc/README.md), section 4.
+
+### Run test cases
+In `hw/`
+```
+$ make IMAGE=verif/snn/testx.bin emu
+```
+
+where `testx.bin` can be `test1.bin`, `test2.bin`, and `testLTD.bin` for instruction test.
 
 ---
 **The following part is the introduce of Nutshell**
