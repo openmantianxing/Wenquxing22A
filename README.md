@@ -27,7 +27,7 @@ $ make IMAGE=verif/snn/testx.bin emu
 where `testx.bin` can be `test1.bin`, `test2.bin`, and `testLTD.bin` for instruction test.
 
 ---
-**The following part is the introduce of Nutshell**
+**The following part is the introduction of Nutshell**
 ---
 # NutShell (果壳)
 
