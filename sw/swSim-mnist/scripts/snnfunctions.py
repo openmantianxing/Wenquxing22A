@@ -1,4 +1,3 @@
-import imp
 import random
 import numpy as np
 import scipy as sp
@@ -33,7 +32,8 @@ def deskew(image):
 
 
 def initialize_weight_matrix(input_num, output_num):
-    weight_matrix = [[1] * input_num for n in range(output_num)]
+    #weight_matrix = [[1] * input_num for n in range(output_num)]
+    weight_matrix = np.random.randint(0, 2, (output_num, input_num))
     return weight_matrix
 
 def lpd(wexp, weight_matrix, teacher_signal):
@@ -44,7 +44,7 @@ def lpd(wexp, weight_matrix, teacher_signal):
     else:
         for i in range(len(weight_matrix[teacher_signal])):
             if weight_matrix[teacher_signal][i] == 1:
-                weight_matrix[teacher_signal][i] = (random.random() >= lpd_poss).astype(np.int)
+                weight_matrix[teacher_signal][i] = (random.random() >= lpd_poss).astype(int)
     return weight_matrix
 
 def train_network(neuSpike, input, weight_matrix, teacher_signal, wexp):
@@ -59,7 +59,7 @@ def train_network(neuSpike, input, weight_matrix, teacher_signal, wexp):
         if j == teacher_signal:
             continue
         else:
-            weight_matrix = lpd(256, weight_matrix, j)
+            weight_matrix = lpd(wexp, weight_matrix, j)
     return weight_matrix
 
 def neuCharge(vneuron, vin, vleak, vth):
@@ -71,19 +71,83 @@ def neuCharge(vneuron, vin, vleak, vth):
 def PoissonEncoder(steps, poissonOut,inputImg):
     for i in range(steps):
         r = np.random.rand(28, 28)
-        poissonOut.append(np.asarray(r <= inputImg).astype(np.int))
+        poissonOut.append(np.asarray(r <= inputImg).astype(int))
     return poissonOut
 
 def imgSoft(inputImg, softed, ath):
     th = np.ones((28, 28)) * ath
 #    softed = inputImg * 1e8
     for (img, i) in zip(inputImg, range(1, len(inputImg) + 1)):
-        softed.append(np.asarray(img >= th).astype(np.int))
+        softed.append(np.asarray(img >= th).astype(int))
         processBar(i, len(inputImg), "Softing")
     print("")
     return softed
 	
+# 大律法
+class OTSU():
+    def __init__(self, img):
+        self.img = img
+        num_list = self.Pixel_num()
+        self.num_list = num_list
+        rate_list = self.Pixel_rate()
+        self.rate_list = rate_list
+        optimal_pixel = self.Optimal_partition()
+        self.optimal_pixel = optimal_pixel
 
+    def Pixel_num(self):
+        num = [0 for _ in range(256)]
+        a = np.shape(self.img)
+        for i in range(a[0]):
+            for j in range(a[1]):
+                num[self.img[i][j]] += 1
+        return num
+ 
+    def Pixel_rate(self):
+        rate_list = []
+        n = sum(self.num_list)
+        for i in range(len(self.num_list)):
+            rate = self.num_list[i] / n
+            rate_list.append(rate)
+        return rate_list
+ 
+    def Optimal_partition(self):
+        deltaMax = 0
+        T = 0
+        for i in range(256):
+            w1 = w2 = u1 = u2 = 0
+            u1tmp = u2tmp = 0
+            deltaTmp = 0
+            for j in range(256):
+                if (j <= i):
+                    w1 += self.rate_list[j]
+                    u1tmp += j * self.rate_list[j]
+                else:
+                    w2 += self.rate_list[j]
+                    u2tmp += j * self.rate_list[j]
+            if w1 == 0:
+                u1 = 0
+            else:
+                u1 = u1tmp / w1
+            if w2 == 0:
+                u2 = 0
+            else:
+                u2 = u2tmp / w2
+            deltaTmp = w1 * w2 * ((u1- u2) ** 2)
+            if deltaTmp > deltaMax:
+                deltaMax = deltaTmp
+                T = i
+        return T
+ 
+    def Otsu(self):
+        a = np.shape(self.img)
+        new_img = np.zeros((a[0], a[1]))
+        for i in range(a[0]):
+            for j in range(a[1]):
+                if self.img[i][j] > self.optimal_pixel:
+                    new_img[i][j] = 255
+                else:
+                    new_img[i][j] = 0
+        return new_img
 
 
 

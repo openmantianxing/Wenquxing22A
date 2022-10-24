@@ -1,5 +1,3 @@
-from contextlib import suppress
-from turtle import pos
 import numpy as np
 import  sys
 import snnfunctions as sf
