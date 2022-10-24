@@ -7,28 +7,11 @@ Wenquxing 22A is a low-power neuromorphic processor which combines both general-
 - with the Binary Stochastic STDP to gear to the
 single cycle updating of synaptic weights.
 
-The full documents of Wenquxing 22A is in [doc](./doc/) directory.
-
-## Quick Usage
-
-### Generate Verilog File for FPGA
-In `hw/`
-```
-$ make BOARD=pynq
-```
-detailed information can be found in [doc](doc/README.md), section 4.
-
-### Run test cases
-In `hw/`
-```
-$ make IMAGE=verif/snn/testx.bin emu
-```
-
-where `testx.bin` can be `test1.bin`, `test2.bin`, and `testLTD.bin` for instruction test.
+The full documents of Wenquxing 22A is in [doc](./doc/README.md) directory.
 
 ---
 **The following part is the introduction of Nutshell**
----
+
 # NutShell (果壳)
 
 NutShell is a processor developed by the OSCPU (Open Source Chip Project by University) team.

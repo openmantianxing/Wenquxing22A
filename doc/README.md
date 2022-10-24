@@ -21,7 +21,7 @@ Wenquxing 22A is a low-power neuromorphic processor which combines both general-
 single cycle updating of synaptic weights.
 
 ### File structure of Wenquxing 22A(ONLY related files are listed)
-
+**You can find hardware source code [here](../hw/).**
 ```
 hw/src/
 ├── main
