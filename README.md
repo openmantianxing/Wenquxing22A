@@ -1,4 +1,4 @@
-# Wenquxing 22A: A Neuromorphic Processor of RISC-V Customized Instruction Extensions for Spiking Neuron Network
+# RISC-V Toolchain and Agile Development based Open-source Neuromorphic Processor
 
 Wenquxing 22A is a low-power neuromorphic processor which combines both general-purpose CPU functions and SNN to efficiently computing it with RISC-V SNN extension instructions. Its key features are shown as follow:
 
