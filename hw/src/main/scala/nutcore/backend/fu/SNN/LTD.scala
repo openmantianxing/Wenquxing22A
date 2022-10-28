@@ -19,6 +19,8 @@ package nutcore
 import chisel3._
 import chisel3.util._
 
+import utils._
+
 class LTDIO(val len: Int) extends NutCoreBundle{
     val in =  Flipped(DecoupledIO(new Bundle{
         val prob = Input(UInt(len.W))
@@ -53,7 +55,7 @@ class LTD(val len: Int) extends NutCoreModule{
         when(prob === 0.U){state := s_finish}
         state := s_genr
     }.elsewhen(state === s_genr){
-        val rand = LFSR16()
+        val rand = LFSR64()
         r := Cat(rand(14,10),rand(7,3))
         state := s_comp
     }.elsewhen(state === s_comp){
