@@ -138,7 +138,7 @@ class Emulator {
 #endif
         set_abort();
       }
-
+/*
       if (!hascommit && (uint32_t)dut_ptr->io_difftest_thisPC == 0x80000000) {
         hascommit = 1;
         extern void init_difftest(rtlreg_t *reg);
@@ -146,7 +146,6 @@ class Emulator {
         read_emu_regs(reg);
         init_difftest(reg);
       }
-
       // difftest
       if (dut_ptr->io_difftest_commit && hascommit) {
         rtlreg_t reg[DIFFTEST_NR_REG];
@@ -167,6 +166,8 @@ class Emulator {
         }
         lastcommit = n;
       }
+*/
+
 
       uint32_t t = uptime();
       if (t - lasttime > 100) {
