@@ -103,7 +103,7 @@ LOG_END ?= 0
 LOG_LEVEL ?= ALL
 
 emu: $(EMU)
-	@$(EMU) -i $(IMAGE) $(SEED) -b $(LOG_BEGIN) -e $(LOG_END) -v $(LOG_LEVEL)
+	$(EMU) -i $(IMAGE) $(SEED) -b $(LOG_BEGIN) -e $(LOG_END) -v $(LOG_LEVEL)
 
 cache:
 	$(MAKE) emu IMAGE=Makefile
