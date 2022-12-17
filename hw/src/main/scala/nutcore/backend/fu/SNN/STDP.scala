@@ -56,9 +56,7 @@ class STDP(len: Int) extends NutCoreModule{
         val syn_new = VecInit(syn_reg.asBools)
     
         for (i <- 0 to (len - 1)){
-            when(io.in.bits.output(0) === 1.U){ 
-                    syn_new(i) := src2(i) && io.in.bits.output(0)
-                }
+            syn_new(i) := src1(i) || src2(i) && io.in.bits.output(0)
         }  
         io.out.bits.res := syn_new.asUInt
         io.in.ready := io.out.ready
